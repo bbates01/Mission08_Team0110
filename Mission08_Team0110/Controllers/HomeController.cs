@@ -1,11 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
+<<<<<<< HEAD
 using Mission08_Team0110.Models;
 
+=======
+// using Mission08_Team0110.Models;
+using Mission08_Team0110.Models;
+>>>>>>> 0e1120f5c562bd8e56d103829b5f6379f3e7aaeb
 namespace Mission08_Team0110.Controllers;
 
 public class HomeController : Controller
 {
-    private ApplicationDbContext _context;
+    private readonly ApplicationDbContext _context;
 
     public HomeController(ApplicationDbContext context)
     {
@@ -38,5 +43,9 @@ public class HomeController : Controller
             .ToList();
         
         return View("Create", recordToEdit);
+    }
+    public IActionResult Quadrants()
+    {
+        return View(new List<TaskItem>());
     }
 }
