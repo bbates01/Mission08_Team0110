@@ -87,8 +87,31 @@ public class HomeController : Controller
             .Include(x => x.Category)
             .ToList();
         
-        
-        
         return View(incompleteTasks);
+    }
+
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+        var recordToDelete = _context.Tasks
+            .Single(x => x.TaskId == id);
+
+        _context.Tasks.Remove(recordToDelete);
+        _context.SaveChanges();
+        
+        return RedirectToAction("Quadrants");
+    }
+
+    [HttpGet]
+    public IActionResult MarkComplete(int id)
+    {
+        var recordToComplete = _context.Tasks
+            .Single(x => x.TaskId == id);
+        
+        recordToComplete.Completed = true;
+        _context.Tasks.Update(recordToComplete);
+        _context.SaveChanges();
+        
+        return RedirectToAction("Quadrants");
     }
 }
