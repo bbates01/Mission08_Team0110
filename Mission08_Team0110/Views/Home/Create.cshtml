@@ -6,69 +6,90 @@
     ViewData["Title"] = isEdit ? "Edit Task" : "Add Task";
 }
 
-<form method="post">
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white">
-                        <h4 class="mb-0">@ViewData["Title"]</h4>
-                    </div>
 
-                    <div class="card-body">
-                        <form asp-method="post">
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">@ViewData["Title"]</h4>
+                </div>
 
-                            @if (isEdit)
-                            {
-                                <input type="hidden" asp-for="TaskId" />
-                            }
-
-                            <div class="mb-3">
-                                <label asp-for="TaskName" class="form-label">Task Name</label>
-                                <input asp-for="TaskName" class="form-control" placeholder="Enter task description" required />
-                            </div>
-
-                            <div class="mb-3">
-                                <label asp-for="DueDate" class="form-label">Due Date</label>
-                                <input asp-for="DueDate" type="date" class="form-control" />
-                            </div>
-
-                            <div class="mb-3">
-                                <label asp-for="CategoryId" class="form-label">Category</label>
-                                <select asp-for="CategoryId" class="form-select">
-                                    <option value="">-- Select a Category --</option>
-                                    @foreach (Category c in ViewBag.Categories)
+                <div class="card-body">
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <strong>Validation Errors:</strong>
+                            <ul class="mb-0 mt-2">
+                                @foreach (var modelState in ViewData.ModelState.Values)
+                                {
+                                    @foreach (var error in modelState.Errors)
                                     {
-                                        <option value=@c.CategoryId>@c.Name</option>
+                                        <li>@error.ErrorMessage</li>
                                     }
-                                </select>
-                            </div>
+                                }
+                            </ul>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
 
-                            <div class="mb-3">
-                                <label asp-for="Quadrant" class="form-label">Quadrant</label>
-                                <select asp-for="Quadrant" class="form-select" required>
-                                    <option value="">-- Select a Quadrant --</option>
-                                    <option value="1">Quadrant I: Urgent / Important</option>
-                                    <option value="2">Quadrant II: Not Urgent / Important</option>
-                                    <option value="3">Quadrant III: Urgent / Not Important</option>
-                                    <option value="4">Quadrant IV: Not Urgent / Not Important</option>
-                                </select>
-                            </div>
+                    <form asp-action="Create" asp-method="POST">
 
-                            <div class="mb-3 form-check">
-                                <input asp-for="Completed" type="checkbox" class="form-check-input" id="completedCheck">
-                                <label class="form-check-label" for="completedCheck">Mark as Completed</label>
-                            </div>
+                        @if (isEdit)
+                        {
+                            <input type="hidden" asp-for="TaskId" />
+                        }
 
-                            <div class="mt-4">
-                                <button type="submit" class="btn btn-success">Save Task</button>
-                                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
-                            </div>
+                        <div class="mb-3">
+                            <label asp-for="TaskName" class="form-label">Task Name</label>
+                            <input asp-for="TaskName" class="form-control" placeholder="Enter task description" required />
+                            <span asp-validation-for="TaskName" class="text-danger"></span>
+                        </div>
 
-                        </form>
-                    </div>
+                        <div class="mb-3">
+                            <label asp-for="DueDate" class="form-label">Due Date</label>
+                            <input asp-for="DueDate" type="date" class="form-control" />
+                            <span asp-validation-for="DueDate" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="CategoryId" class="form-label">Category</label>
+                            <select asp-for="CategoryId" class="form-select">
+                                <option value="">-- Select a Category --</option>
+                                @foreach (Category c in ViewBag.Categories)
+                                {
+                                    <option value=@c.CategoryId>@c.Name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Quadrant" class="form-label">Quadrant</label>
+                            <select asp-for="Quadrant" class="form-select" required>
+                                <option value="">-- Select a Quadrant --</option>
+                                <option value="1">Quadrant I: Urgent / Important</option>
+                                <option value="2">Quadrant II: Not Urgent / Important</option>
+                                <option value="3">Quadrant III: Urgent / Not Important</option>
+                                <option value="4">Quadrant IV: Not Urgent / Not Important</option>
+                            </select>
+                            <span asp-validation-for="Quadrant" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input asp-for="Completed" type="checkbox" class="form-check-input" id="completedCheck">
+                            <label class="form-check-label" for="completedCheck">Mark as Completed</label>
+                        </div>
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-success">Save Task</button>
+                            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Cancel</a>
+                        </div>
+                        <div asp-validation-summary="All"></div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</form>
+</div>
+

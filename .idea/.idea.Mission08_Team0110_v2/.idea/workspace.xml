@@ -10,7 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="94e4f3ce-f462-49a7-b782-c6f1ffafb2c3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Mission08_Team0110_v2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Mission08_Team0110_v2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mission08_Team0110/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Mission08_Team0110/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mission08_Team0110/Models/TaskItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Mission08_Team0110/Models/TaskItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mission08_Team0110/Views/Home/Create.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/Mission08_Team0110/Views/Home/Create.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1772236912379</updated>
       <workItem from="1772236913434" duration="1869000" />
-      <workItem from="1772238804807" duration="9484000" />
+      <workItem from="1772238804807" duration="10801000" />
     </task>
     <servers />
   </component>
@@ -140,19 +141,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Mission08_Team0110/Controllers/HomeController.cs</url>
-          <line>28</line>
-          <properties documentPath="$PROJECT_DIR$/Mission08_Team0110/Controllers/HomeController.cs" containingFunctionPresentation="Method 'Create'">
-            <startOffsets>
-              <option value="590" />
-            </startOffsets>
-            <endOffsets>
-              <option value="618" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Mission08_Team0110/Controllers/HomeController.cs</url>
           <line>39</line>
@@ -194,13 +182,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Mission08_Team0110/Controllers/HomeController.cs</url>
-          <line>71</line>
+          <line>72</line>
           <properties documentPath="$PROJECT_DIR$/Mission08_Team0110/Controllers/HomeController.cs" containingFunctionPresentation="Method 'Quadrants'">
             <startOffsets>
-              <option value="1622" />
+              <option value="1660" />
             </startOffsets>
             <endOffsets>
-              <option value="1651" />
+              <option value="1689" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />

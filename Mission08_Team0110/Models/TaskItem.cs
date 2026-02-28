@@ -20,8 +20,8 @@ public class TaskItem
 
     public bool Completed { get; set; } = false;
 
+    [ForeignKey("CategoryId")]
     public int? CategoryId { get; set; }
 
-    [ForeignKey("CategoryId")]
-    public Category Category { get; set; }
+    public Category? Category { get; set; }
 }
