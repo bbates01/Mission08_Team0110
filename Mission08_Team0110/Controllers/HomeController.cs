@@ -61,10 +61,9 @@ public class HomeController : Controller
     }
     public IActionResult Quadrants()
     {
-        var incompleteTasks = _context.Tasks
-            .Where(x => x.Completed == false)
+        var tasks = _context.Tasks
             .ToList();
         
-        return View(incompleteTasks);
+        return View(tasks);
     }
 }
