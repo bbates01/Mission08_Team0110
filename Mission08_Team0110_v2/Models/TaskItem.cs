@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Mission08_Team0110.Models;
+namespace Mission08_Team0110_v2.Models;
 
 public class TaskItem
 {
