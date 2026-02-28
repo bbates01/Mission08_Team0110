@@ -52,3 +52,8 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# SQLite temporary files (keep the main .sqlite file tracked)
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite-journal
